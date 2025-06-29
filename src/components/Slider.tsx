@@ -11,7 +11,7 @@ interface SliderProps {
 
 export default function Slider({ images }: SliderProps) {
   const [heroImageIdx, setHeroImageIdx] = useState(0);
-  const btnClass = "bg-black p-4 hover:opacity-50 hover:cursor-pointer";
+  const btnClass = "bg-black p-4 hover:opacity-50 hover:cursor-pointer xl:p-[33px]";
   const device = window.innerWidth > 375 ? 'desktop' : 'mobile';
   const arrLength = images[device].length;
 
@@ -28,10 +28,10 @@ export default function Slider({ images }: SliderProps) {
   }
 
   return (
-    <div className='relative w-[375px] md:w-[840px]'>
+    <div className='relative min-w-[375px] xl:min-w-[840px]'>
         <img src={images.mobile[heroImageIdx]} alt="Mobile" className="block md:hidden" />
         <img src={images.desktop[heroImageIdx]} alt="Desktop" className="hidden md:block" />
-        <div className='absolute right-0 bottom-0'>
+        <div className='absolute right-0 bottom-0 xl:right-[-159px]'>
           <button className={btnClass} onClick={() => onNextImage()}><img src={angleLeft} alt="" /></button>
           <button className={btnClass} onClick={() => onPrevImage()}><img src={angleRight} alt="" /></button>
         </div>
